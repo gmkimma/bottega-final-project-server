@@ -45,15 +45,15 @@ function handleDisconnect () {
 handleDisconnect()
 
 app.use(express.json())
-app.use(
-  cors({
-    origin: [
-      'https://bottega-capstone-project-kimma-d587bac5eeb7.herokuapp.com'
-    ],
-    methods: ['GET', 'POST', 'DELETE', 'PUT'],
-    credentials: true
-  })
-)
+// app.use(
+//   cors({
+//     origin: [
+//       'https://bottega-capstone-project-kimma-d587bac5eeb7.herokuapp.com'
+//     ],
+//     methods: ['GET', 'POST', 'DELETE', 'PUT'],
+//     credentials: true
+//   })
+// )
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }))
 
