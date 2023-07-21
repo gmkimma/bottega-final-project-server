@@ -75,10 +75,6 @@ app.get('/', function (req, res) {
   console.log('Signed Cookies: ', req.signedCookies)
 })
 
-app.get('/', (req, res) => {
-  res.json({ message: 'hello world' })
-})
-
 app.post('/api/register', (req, res) => {
   const username = req.body.username
   const password = req.body.password
