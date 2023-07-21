@@ -67,6 +67,10 @@ app.use(
   })
 )
 
+app.get('/', (req, res) => {
+  res.json({ message: 'hello world' })
+})
+
 app.post('/api/register', (req, res) => {
   const username = req.body.username
   const password = req.body.password
@@ -81,11 +85,6 @@ app.post('/api/register', (req, res) => {
     }
   )
 })
-
-app.get('/api/get'),
-  (req, res) => {
-    req.send({ message: 'hello world' })
-  }
 
 app.get('/api/login', (req, res) => {
   if (req.session.user) {
