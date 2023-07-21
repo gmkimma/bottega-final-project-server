@@ -79,6 +79,11 @@ app.post('/api/register', (req, res) => {
   )
 })
 
+app.get('/api/get'),
+  (req, res) => {
+    res.send('hello world')
+  }
+
 app.get('/api/login', (req, res) => {
   if (req.session.user) {
     res.send({ loggedIn: true, user: req.session.user })
