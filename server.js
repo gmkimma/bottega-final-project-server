@@ -53,7 +53,7 @@ app.use(
   })
 )
 app.use(cookieParser('bottega', { key: userId }))
-// app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }))
 
 // app.use(
 //   session({
