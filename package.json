@@ -2,7 +2,7 @@
   "name": "beat-blackjack-backend",
   "version": "1.0.0",
   "description": "Backend for Beat BlackJack",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"

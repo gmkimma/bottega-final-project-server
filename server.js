@@ -120,7 +120,3 @@ app.post('/api/login', (req, res) => {
 app.delete('/api/session', (req, res) => {
   req.session.destroy()
 })
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`)
-})
