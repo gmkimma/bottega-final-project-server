@@ -8,7 +8,7 @@ const session = require('express-session')
 
 const app = express()
 
-const PORT = 3001
+const port = process.env.PORT || 3001
 
 const db_config = {
   host: 'us-cdbr-east-06.cleardb.net',
@@ -113,6 +113,6 @@ app.delete('/api/session', (req, res) => {
   req.session.destroy()
 })
 
-app.listen(process.env.PORT || PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
 })
