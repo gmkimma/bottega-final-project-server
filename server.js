@@ -47,7 +47,9 @@ handleDisconnect()
 app.use(express.json())
 app.use(
   cors({
-    origin: ['http://localhost:3000'],
+    origin: [
+      'https://bottega-capstone-project-kimma-d587bac5eeb7.herokuapp.com'
+    ],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true
   })
