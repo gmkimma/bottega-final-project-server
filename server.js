@@ -52,20 +52,28 @@ app.use(
     credentials: true
   })
 )
-app.use(cookieParser())
+app.use(cookieParser('bottega', { key: userId }))
 // app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use(
-  session({
-    key: 'userId',
-    secret: 'bottega',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      expires: 60 * 60 * 24 * 1000
-    }
-  })
-)
+// app.use(
+//   session({
+//     key: 'userId',
+//     secret: 'bottega',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       expires: 60 * 60 * 24 * 1000
+//     }
+//   })
+// )
+
+app.get('/', function (req, res) {
+  // Cookies that have not been signed
+  console.log('Cookies: ', req.cookies)
+
+  // Cookies that have been signed
+  console.log('Signed Cookies: ', req.signedCookies)
+})
 
 app.get('/', (req, res) => {
   res.json({ message: 'hello world' })
