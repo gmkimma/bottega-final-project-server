@@ -65,7 +65,7 @@ app.use(
     cookie: {
       expires: 60 * 60 * 24 * 1000,
       sameSite: 'none',
-      secure: true
+      secure: process.env.NODE_ENV === 'production'
     }
   })
 )
