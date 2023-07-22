@@ -113,6 +113,13 @@ app.post('/api/login', (req, res) => {
       }
     }
   )
+
+  const user = { id: 123, username: 'greg' }
+  res.cookie('userData', user, {
+    expires: new Date(Date.now() + 3600000), // Cookie expires in 1 hour
+    secure: true, // Set secure to true for HTTPS (required for production on Heroku)
+    sameSite: 'none' // Required for cross-site cookies
+  })
 })
 
 app.delete('/api/session', (req, res) => {
