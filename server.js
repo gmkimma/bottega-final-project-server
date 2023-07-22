@@ -5,6 +5,8 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 
+const cookieSession = require('cookie-session')
+
 const app = express()
 
 const PORT = process.env.PORT || 3001
@@ -67,6 +69,15 @@ app.use(
       sameSite: 'none',
       secure: false
     }
+  })
+)
+
+app.use(
+  cookieSession({
+    secret: 'bottega',
+    sameSite: 'none',
+    secure: true,
+    httpOnly: true
   })
 )
 
