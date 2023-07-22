@@ -2,7 +2,6 @@ const express = require('express')
 const mysql = require('mysql')
 const cors = require('cors')
 
-// const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 
@@ -47,7 +46,9 @@ handleDisconnect()
 app.use(express.json())
 app.use(
   cors({
-    origin: ['http://localhost:3000'],
+    origin: [
+      'https://bottega-project-kimma-frontend-08a97854118f.herokuapp.com/'
+    ],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true
   })
@@ -55,25 +56,12 @@ app.use(
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 
-// app.use(
-//   session({
-//     key: 'userId',
-//     secret: 'bottega',
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: {
-//       expires: 60 * 60 * 24 * 1000,
-//       sameSite: 'none',
-//       secure: true
-//     }
-//   })
-// )
-
 app.use(
   session({
+    key: 'userId',
+    secret: 'bottega',
     resave: false,
     saveUninitialized: false,
-    secret: 'sessions',
     cookie: {
       expires: 60 * 60 * 24 * 1000,
       sameSite: 'none',
@@ -81,14 +69,6 @@ app.use(
     }
   })
 )
-
-app.get('/', function (req, res) {
-  // Cookies that have not been signed
-  console.log('Cookies: ', req.cookies)
-
-  // Cookies that have been signed
-  console.log('Signed Cookies: ', req.signedCookies)
-})
 
 app.post('/api/register', (req, res) => {
   const username = req.body.username
