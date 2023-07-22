@@ -52,17 +52,32 @@ app.use(
     credentials: true
   })
 )
-app.use(cookieParser('bottega'))
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
+
+// app.use(
+//   session({
+//     key: 'userId',
+//     secret: 'bottega',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       expires: 60 * 60 * 24 * 1000,
+//       sameSite: 'none',
+//       secure: true
+//     }
+//   })
+// )
 
 app.use(
   session({
-    key: 'userId',
-    secret: 'bottega',
     resave: false,
     saveUninitialized: false,
+    secret: 'sessions',
     cookie: {
-      expires: 60 * 60 * 24 * 1000
+      expires: 60 * 60 * 24 * 1000,
+      sameSite: 'none',
+      secure: true
     }
   })
 )
